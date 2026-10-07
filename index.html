@@ -7,7 +7,14 @@
 <meta name="description" content="MŌJ — Made of Joy, sustainable perfume. Grand Opening in Abu Dhabi, Saturday 10 October, 4:30 PM. A new destination for fragrance.">
 <meta property="og:title" content="MŌJ Grand Opening · Abu Dhabi">
 <meta property="og:description" content="Saturday 10 October · 4:30 PM. A new destination for fragrance. In association with HiFive Holdings.">
-<meta property="og:image" content="assets/invitation.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moj-grand-opening.pages.dev/">
+<meta property="og:image" content="https://moj-grand-opening.pages.dev/assets/share.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://moj-grand-opening.pages.dev/assets/share.jpg">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"MŌJ Grand Opening","description":"Grand opening of MŌJ — Made of Joy, sustainable perfume. A new destination for fragrance in Abu Dhabi.","startDate":"2026-10-10T16:30:00+04:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"MŌJ Perfume, near Madinat Zayed Shopping Center","address":"27 Al Asdiqa-a St, Al Danah, Abu Dhabi, UAE"},"image":"https://moj-grand-opening.pages.dev/assets/share.jpg","organizer":{"@type":"Organization","name":"MŌJ Perfumes","url":"https://www.mojperfumes.com/en-ae"}}</script>
 <meta name="theme-color" content="#1c1c1c">
 <link rel="canonical" href="https://moj-grand-opening.pages.dev/">
 <script>if(location.hostname.endsWith("github.io"))location.replace("https://moj-grand-opening.pages.dev/"+location.hash)</script>
@@ -207,7 +214,8 @@ footer .fm.gold-text{padding-left:.3em}
 .invite p{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold-2);margin-top:18px}
 .lightbox{position:fixed;inset:0;z-index:90;background:rgba(22,15,9,.92);display:none;place-items:center;padding:20px;cursor:zoom-out}
 .lightbox.on{display:grid;animation:fadeIn .3s forwards;opacity:0}
-.lightbox img{max-height:92svh;width:auto;border-radius:6px}
+.lightbox img{max-height:88svh;width:auto;max-width:100%;border-radius:6px}
+.lb-x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:18px;color:#f6dc9c;font:300 38px/1 var(--sans)}
 
 footer{background:var(--espresso);color:#b8a281;text-align:center;padding:50px 16px 60px;font-family:var(--sans);font-size:11px;letter-spacing:.24em}
 footer .fm{font-weight:300;font-size:30px;letter-spacing:.3em;margin-bottom:6px;padding-left:.3em}
@@ -522,7 +530,7 @@ p.eyebrow,.scent-copy p.eyebrow,.sec-head p.eyebrow{font-family:var(--sans);font
   <div class="stats">
     <div class="rv"><b class="gold-text" data-count="250" data-suffix="+">0</b><span>SCENTS TO DISCOVER</span></div>
     <div class="rv" style="--dl:.12s"><b class="gold-text" data-count="75000" data-suffix="+">0</b><span>CUSTOMERS ACROSS THE UAE</span></div>
-    <div class="rv" style="--dl:.24s"><b class="gold-text" data-count="10" data-suffix="">0</b><span>STORES IN THE UAE</span></div>
+    <div class="rv" style="--dl:.24s"><b class="gold-text" data-count="6" data-suffix="">0</b><span>SCENT FAMILIES</span></div>
   </div>
 </section>
 <div class="marquee" aria-hidden="true"><div class="track" id="marq2"></div></div>
@@ -550,7 +558,7 @@ p.eyebrow,.scent-copy p.eyebrow,.sec-head p.eyebrow{font-family:var(--sans);font
     <button class="btn line" id="share">Share invite</button>
   </div>
   <div class="invite rv">
-    <button id="openInvite" aria-label="View the invitation"><img src="assets/invitation.jpg" alt="MŌJ Grand Opening invitation"></button>
+    <button id="openInvite" aria-label="View the invitation"><img src="assets/invitation.jpg" alt="MŌJ Grand Opening invitation" loading="lazy"></button>
     <p>VIEW THE INVITATION</p>
   </div>
 </section>
@@ -559,7 +567,7 @@ p.eyebrow,.scent-copy p.eyebrow,.sec-head p.eyebrow{font-family:var(--sans);font
   <a class="pri" href="#" data-directions><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>DIRECTIONS</a>
   <a href="#" id="gcal2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>SAVE DATE</a>
 </div>
-<div class="lightbox" id="lightbox"><img src="assets/invitation.jpg" alt="MŌJ Grand Opening invitation"></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Invitation"><img src="assets/invitation.jpg" alt="MŌJ Grand Opening invitation" loading="lazy"><span class="lb-x" aria-hidden="true">×</span></div>
 
 <footer>
   <div class="fm gold-text">MŌJ</div>
@@ -607,6 +615,7 @@ const title = 'MŌJ Grand Opening';
 const details = 'Grand opening of MŌJ — Made of Joy. A new destination for fragrance. In association with HiFive Holdings. ' + location.href.split('#')[0];
 $('#gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+z(CONFIG.start)+'/'+z(CONFIG.end)+'&details='+encodeURIComponent(details)+'&location='+encodeURIComponent(CONFIG.venue+', '+CONFIG.address);
 $('#gcal2').href=$('#gcal').href;
+if(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&'ontouchend' in document){['#gcal2','#gcal'].forEach(id=>{const a=$(id);a.removeAttribute('target');a.addEventListener('click',e=>{e.preventDefault();$('#ics').click()})})}
 $('#ics').addEventListener('click',e=>{
   e.preventDefault();
   const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//MOJ//Grand Opening//EN','BEGIN:VEVENT','UID:moj-grand-opening-20261010@moj','DTSTAMP:'+z(new Date()),'DTSTART:'+z(CONFIG.start),'DTEND:'+z(CONFIG.end),'SUMMARY:'+title,'DESCRIPTION:'+details,'LOCATION:'+CONFIG.venue+'\\, '+CONFIG.address.replace(/,/g,'\\,'),'END:VEVENT','END:VCALENDAR'].join('\r\n');
@@ -623,6 +632,7 @@ $('#share').addEventListener('click',async e=>{
 });
 $('#openInvite').onclick=()=>$('#lightbox').classList.add('on');
 $('#lightbox').onclick=()=>$('#lightbox').classList.remove('on');
+addEventListener('keydown',e=>{if(e.key==='Escape')$('#lightbox').classList.remove('on')});
 
 /* --- leaves: inline the branch --- */
 const branch=document.getElementById('branch').innerHTML;
@@ -704,7 +714,8 @@ function finishIntro(fast){
   setTimeout(()=>{intro.remove()}, fast?1400:2200);
   
 }
-if(reduce) finishIntro(true); else setTimeout(()=>finishIntro(false),3600);
+let seen=false;try{seen=sessionStorage.getItem('mojIntro')==='1';sessionStorage.setItem('mojIntro','1')}catch(_){}
+if(reduce) finishIntro(true); else setTimeout(()=>finishIntro(false),seen?1500:3600);
 $('#skip').onclick=()=>finishIntro(true);
 intro.addEventListener('click',e=>{if(e.target.id!=='skip')finishIntro(false)});
 
