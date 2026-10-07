@@ -40,34 +40,23 @@ a{color:inherit}
 
 /* ---------- INTRO ---------- */
 #intro{position:fixed;inset:0;z-index:80;display:grid;place-items:center;overflow:hidden}
-#intro .half{position:absolute;left:0;right:0;height:50.5%;background:radial-gradient(120% 140% at 50% 100%,#33291d 0%,var(--espresso) 70%);transition:transform 1.3s cubic-bezier(.77,0,.18,1)}
+#intro .half{position:absolute;left:0;right:0;height:50.5%;transition-duration:1.6s!important;background:radial-gradient(120% 140% at 50% 100%,#33291d 0%,var(--espresso) 70%);transition:transform 1.3s cubic-bezier(.77,0,.18,1)}
 #intro .half.top{top:0}
 #intro .half.bot{bottom:0;background:radial-gradient(120% 140% at 50% 0%,#33291d 0%,var(--espresso) 70%)}
 #intro.open .half.top{transform:translateY(-102%)}
 #intro.open .half.bot{transform:translateY(102%)}
-#intro .stage{position:relative;width:100%;height:100%;display:grid;place-items:center;transition:opacity .6s}
-#intro.open .stage{opacity:0}
-.intro-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-150%);text-align:center;opacity:0;animation:fadeUp 1s .2s forwards}
-.intro-logo .m{font-family:var(--sans);font-weight:300;font-size:clamp(46px,10vw,92px);letter-spacing:.18em;padding-left:.18em;line-height:1}
-.intro-logo small{display:block;font-family:var(--sans);font-weight:600;letter-spacing:.42em;font-size:clamp(10px,2.2vw,14px);color:var(--gold-3);margin-top:10px;padding-left:.42em}
-@keyframes fadeUp{from{opacity:0;transform:translate(-50%,-120%)}to{opacity:1;transform:translate(-50%,-150%)}}
-.ribbon{position:absolute;top:56%;height:34px;width:52%;background:linear-gradient(180deg,#6e4013,#d6a14f 30%,#fff0c4 50%,#d39a46 70%,#6e4013);box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform 1.2s cubic-bezier(.5,0,.75,0),opacity 1.2s}
-.ribbon.l{left:0;border-radius:0 4px 4px 0;transform-origin:left center}
-.ribbon.r{right:0;border-radius:4px 0 0 4px;transform-origin:right center}
-.ribbon::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);background-size:300% 100%;animation:shine 2.4s linear infinite}
-#intro.cut .ribbon.l{transform:rotate(38deg) translateY(60px);opacity:.0}
-#intro.cut .ribbon.r{transform:rotate(-38deg) translateY(60px);opacity:.0}
-.bow{position:absolute;top:calc(56% - 30px);left:50%;width:94px;height:94px;transform:translate(-50%,-14px);transition:transform 1s cubic-bezier(.5,0,.75,0),opacity .8s}
-#intro.cut .bow{transform:translate(-50%,240px) rotate(70deg);opacity:0}
-.scissors{position:absolute;top:calc(56% - 46px);left:-160px;width:130px;height:130px;animation:snipIn 1.2s 1s cubic-bezier(.2,.8,.2,1) forwards;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6))}
-@keyframes snipIn{to{left:calc(50% - 75px)}}
-.scissors .bladeA{transform-origin:62px 66px;animation:snip .32s 2.2s 2 ease-in-out}
-.scissors .bladeB{transform-origin:62px 66px;animation:snipB .32s 2.2s 2 ease-in-out}
-@keyframes snip{50%{transform:rotate(-16deg)}}
-@keyframes snipB{50%{transform:rotate(16deg)}}
-#intro.cut .scissors{animation:snipOut .9s forwards cubic-bezier(.6,0,.4,1)}
-@keyframes snipOut{from{left:calc(50% - 75px)}to{left:120%}}
-.intro-hint{position:absolute;bottom:9%;left:0;right:0;text-align:center;font-family:var(--sans);font-size:11px;letter-spacing:.4em;color:#b99a6d;opacity:0;animation:fadeIn 1s 1.6s forwards}
+#intro .stage{position:relative;width:100%;height:100%;transition:opacity .9s,transform 1.4s}
+#intro.open .stage{opacity:0;transform:scale(1.06)}
+.intro-logo{position:absolute;left:0;right:0;bottom:calc(50% + 34px);text-align:center}
+.intro-logo .m{font-family:var(--sans);font-weight:300;font-size:clamp(52px,11vw,104px);line-height:1;display:inline-block;letter-spacing:.7em;padding-left:.7em;opacity:0;filter:blur(14px);animation:logoIn 2s .5s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes logoIn{to{letter-spacing:.2em;padding-left:.2em;opacity:1;filter:blur(0)}}
+.intro-logo small{display:block;font-family:var(--sans);font-weight:600;letter-spacing:.5em;font-size:clamp(10px,2vw,13px);color:var(--gold-3);margin-top:16px;padding-left:.5em;opacity:0;animation:fadeIn 1.2s 1.5s forwards}
+.seam{position:absolute;left:8%;right:8%;top:50%;height:1px;background:linear-gradient(90deg,transparent,#c99140 15%,#fff3cf 50%,#c99140 85%,transparent);transform:scaleX(0);animation:seamIn 1.6s .2s cubic-bezier(.7,0,.2,1) forwards;box-shadow:0 0 12px rgba(255,220,150,.6)}
+@keyframes seamIn{to{transform:scaleX(1)}}
+.seam::after{content:"";position:absolute;top:-3px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:#fff6dc;box-shadow:0 0 18px 6px rgba(255,214,140,.8);opacity:0;animation:fadeIn .6s 1.2s forwards}
+.intro-sub{position:absolute;left:0;right:0;top:calc(50% + 30px);text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(18px,3vw,24px);color:#e7d6b8;opacity:0;animation:fadeIn 1.2s 2s forwards}
+.intro-sub span{display:block;font-family:var(--sans);font-style:normal;font-weight:600;font-size:11px;letter-spacing:.42em;color:#b99a6d;margin-top:12px;padding-left:.42em}
+#intro.cut .seam{animation:none;transform:scaleX(1.3);height:2px;box-shadow:0 0 40px 10px rgba(255,214,140,.7);transition:all .7s}
 @keyframes fadeIn{to{opacity:1}}
 .skip{position:absolute;top:18px;right:18px;z-index:3;background:none;border:1px solid rgba(227,184,102,.4);color:var(--gold-3);font-family:var(--sans);font-size:11px;letter-spacing:.25em;padding:9px 14px;border-radius:40px;cursor:pointer}
 
@@ -97,10 +86,10 @@ a{color:inherit}
 .moj{font-family:var(--sans);font-weight:300;font-size:clamp(64px,13vw,128px);letter-spacing:.16em;line-height:1.2;padding-left:.16em}
 .moj .o{position:relative;display:inline-block}
 .made{font-family:var(--sans);font-weight:600;letter-spacing:.42em;font-size:clamp(11px,2.4vw,18px);color:var(--gold-2);margin-top:12px;padding-left:.42em}
-.grand{font-family:var(--script);font-size:clamp(78px,17vw,190px);line-height:.9;margin-top:clamp(18px,4vw,34px);filter:drop-shadow(0 6px 10px rgba(122,74,23,.25))}
+.grand{font-family:var(--script);font-size:clamp(72px,16vw,180px);line-height:1;margin-top:clamp(18px,4vw,34px);filter:drop-shadow(0 6px 10px rgba(122,74,23,.25))}
 .grand .w{display:block;white-space:nowrap}
-.grand .w:nth-child(2){margin-top:-.08em;padding-left:.6em}
-.grand .ch{display:inline-block;background:var(--gold);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite;padding:0 .04em;opacity:0;transform:translateY(.4em) scale(.7) rotate(-6deg);filter:blur(8px)}
+.grand .w:nth-child(2){margin-top:-.02em;padding-left:.5em}
+.grand .ch{display:inline-block;background:var(--gold);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite;padding:.3em .22em .38em;margin:-.3em -.18em -.38em;opacity:0;transform:translateY(.4em) scale(.7) rotate(-6deg);filter:blur(8px)}
 .ready .grand .ch{animation:chIn .9s cubic-bezier(.2,.9,.2,1.2) forwards,shine 6s linear infinite;animation-delay:calc(.35s + var(--i)*.07s),0s}
 @keyframes chIn{to{opacity:1;transform:none;filter:none}}
 .dateband{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(10px,3vw,28px);margin:clamp(26px,5vw,44px) auto 0;max-width:780px}
@@ -288,13 +277,8 @@ footer .hf img{width:34px}
   <div class="half top"></div><div class="half bot"></div>
   <div class="stage">
     <div class="intro-logo"><div class="m gold-text">MŌJ</div><small>MADE OF JOY</small></div>
-    <div class="ribbon l"></div><div class="ribbon r"></div>
-    <svg class="bow" viewBox="0 0 100 100"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0c4"/><stop offset=".5" stop-color="#d39a46"/><stop offset="1" stop-color="#6e4013"/></linearGradient></defs><path d="M50 50 C 20 15, 2 30, 10 52 C 18 72, 40 60, 50 50Z M50 50 C 80 15, 98 30, 90 52 C 82 72, 60 60, 50 50Z" fill="url(#bg1)"/><path d="M47 54 L 30 95 L 40 88 L 46 98 Z M53 54 L 70 95 L 60 88 L 54 98Z" fill="url(#bg1)"/><circle cx="50" cy="51" r="8" fill="#e6b465" stroke="#7a4a17" stroke-width="1.5"/></svg>
-    <svg class="scissors" viewBox="0 0 130 130"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2c9"/><stop offset=".45" stop-color="#d7a04c"/><stop offset="1" stop-color="#6f4214"/></linearGradient></defs>
-      <g class="bladeA"><path d="M62 66 L126 40 L128 44 L66 72Z" fill="url(#sg)"/><circle cx="28" cy="88" r="20" fill="none" stroke="url(#sg)" stroke-width="7"/><path d="M42 76 L62 66" stroke="url(#sg)" stroke-width="8" stroke-linecap="round"/></g>
-      <g class="bladeB"><path d="M62 66 L126 92 L128 88 L66 60Z" fill="url(#sg)"/><circle cx="28" cy="44" r="20" fill="none" stroke="url(#sg)" stroke-width="7"/><path d="M42 56 L62 66" stroke="url(#sg)" stroke-width="8" stroke-linecap="round"/></g>
-      <circle cx="62" cy="66" r="4.5" fill="#fff4d2" stroke="#7a4a17" stroke-width="1.5"/></svg>
-    <div class="intro-hint">THE RIBBON IS ABOUT TO BE CUT</div>
+    <div class="seam"></div>
+    <div class="intro-sub">A new destination for fragrance<span>GRAND OPENING · ABU DHABI</span></div>
   </div>
   <button class="skip" id="skip">SKIP</button>
 </div>
@@ -528,17 +512,17 @@ $$('[data-split]').forEach(w=>{w.innerHTML=[...w.textContent].map(c=>`<span clas
 const fx=$('#fx'), ctx=fx.getContext('2d');
 let W,H,DPR=Math.min(devicePixelRatio||1,2), parts=[];
 function size(){W=innerWidth;H=innerHeight;[fx,$('#dust')].forEach(c=>{c.width=W*DPR;c.height=H*DPR;c.style.width=W+'px';c.style.height=H+'px'});ctx.setTransform(DPR,0,0,DPR,0,0);dctx.setTransform(DPR,0,0,DPR,0,0)}
-const golds=['#fff0c8','#f2cf86','#e3b866','#c4893a','#9a6324','#ffffff','#8f0e2a'];
+const golds=['#fff6dc','#f6dc9c','#e8c27a','#d4a24f','#ffffff'];
 function burst(x,y,n=120,spread=1){
   if(reduce) return;
   for(let i=0;i<n;i++){
-    const a=Math.random()*Math.PI*2, s=(3+Math.random()*9)*spread;
-    parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-4,g:.18+Math.random()*.12,w:4+Math.random()*7,h:6+Math.random()*10,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:golds[(Math.random()*golds.length)|0],life:1,shape:Math.random()<.25?'star':Math.random()<.5?'circ':'rect'});
+    const a=Math.random()*Math.PI*2, sp=(.6+Math.random()*3.2)*spread;
+    parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-1.2,g:-.012,w:.8+Math.random()*2.4,r:0,vr:0,c:golds[(Math.random()*golds.length)|0],life:1,fade:.008+Math.random()*.012,shape:Math.random()<.3?'star':'circ',glow:1});
   }
 }
 function rain(n=160){
   if(reduce) return;
-  for(let i=0;i<n;i++) parts.push({x:Math.random()*W,y:-20-Math.random()*H*.6,vx:(Math.random()-.5)*2,vy:2+Math.random()*3,g:.04,w:5+Math.random()*6,h:8+Math.random()*10,r:Math.random()*6,vr:(Math.random()-.5)*.25,c:golds[(Math.random()*golds.length)|0],life:1,shape:Math.random()<.2?'star':'rect',slow:1});
+  for(let i=0;i<n;i++) parts.push({x:Math.random()*W,y:H*.5+(Math.random()-.5)*8,vx:(Math.random()-.5)*1.4,vy:-(.4+Math.random()*2.6),g:.004,w:.6+Math.random()*2,r:0,vr:0,c:golds[(Math.random()*golds.length)|0],life:1,fade:.004+Math.random()*.006,shape:Math.random()<.25?'star':'circ',glow:1});
 }
 function star(c,x,y,r){c.beginPath();for(let i=0;i<8;i++){const a=i*Math.PI/4,rr=i%2?r*.35:r;c.lineTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr)}c.closePath();c.fill()}
 let mouseTrail=[];
@@ -546,14 +530,13 @@ function tick(){
   ctx.clearRect(0,0,W,H);
   for(let i=parts.length-1;i>=0;i--){
     const p=parts[i];
-    p.vx*=p.slow?.995:.985; p.vy+=p.g; p.x+=p.vx+(p.slow?Math.sin((p.y+i)/40)*.6:0); p.y+=p.vy; p.r+=p.vr;
-    if(p.y>H+40){parts.splice(i,1);continue}
-    ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;
-    if(p.shape==='star'){ctx.shadowColor='#fff0c8';ctx.shadowBlur=8;star(ctx,0,0,p.w)}
-    else if(p.shape==='circ'){ctx.beginPath();ctx.arc(0,0,p.w/2,0,7);ctx.fill()}
-    else{ctx.scale(1,Math.cos(p.r*2));ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h)}
-    ctx.restore();
+    p.vx*=.985; p.vy=p.vy*.985+p.g; p.x+=p.vx; p.y+=p.vy; p.life-=p.fade;
+    if(p.life<=0||p.y<-20||p.y>H+20){parts.splice(i,1);continue}
+    const tw=.55+.45*Math.sin((p.life*40)+i);
+    ctx.globalAlpha=Math.max(0,p.life)*tw;ctx.fillStyle=p.c;ctx.shadowColor='#ffd98a';ctx.shadowBlur=8;
+    if(p.shape==='star') star(ctx,p.x,p.y,p.w*2.2); else {ctx.beginPath();ctx.arc(p.x,p.y,p.w,0,7);ctx.fill()}
   }
+  ctx.globalAlpha=1;ctx.shadowBlur=0;
   for(let i=mouseTrail.length-1;i>=0;i--){
     const m=mouseTrail[i]; m.life-=.03; m.y+=.4;
     if(m.life<=0){mouseTrail.splice(i,1);continue}
@@ -588,12 +571,12 @@ let introDone=false;
 function finishIntro(fast){
   if(introDone) return; introDone=true;
   intro.classList.add('cut');
-  if(!fast){burst(W/2,H*.56,220,1.2);setTimeout(()=>rain(140),500)}
-  setTimeout(()=>{intro.classList.add('open');document.body.classList.remove('locked');document.body.classList.add('ready');$('#nav').classList.add('show')}, fast?50:650);
+  if(!fast){burst(W/2,H*.5,140,1.4);rain(200)}
+  setTimeout(()=>{intro.classList.add('open');document.body.classList.remove('locked');document.body.classList.add('ready');$('#nav').classList.add('show')}, fast?50:500);
   setTimeout(()=>{intro.remove()}, fast?1400:2200);
-  setTimeout(()=>{if(!fast){burst(W*.2,H*.35,80);burst(W*.8,H*.35,80)}},1800);
+  
 }
-if(reduce) finishIntro(true); else setTimeout(()=>finishIntro(false),2900);
+if(reduce) finishIntro(true); else setTimeout(()=>finishIntro(false),3600);
 $('#skip').onclick=()=>finishIntro(true);
 intro.addEventListener('click',e=>{if(e.target.id!=='skip')finishIntro(false)});
 
@@ -627,7 +610,7 @@ function cd(){
     $('#clock').style.display='none';$('#openNow').style.display='block';
     $('#cdTitle').textContent = now<endT ? 'Happening now' : 'Thank you';
     $('.countdown .eyebrow').textContent = now<endT ? 'THE CELEBRATION IS ON' : 'FOR CELEBRATING WITH US';
-    if(!celebrated && now<endT){celebrated=true;setTimeout(()=>rain(200),3200)}
+    if(!celebrated && now<endT){celebrated=true}
   }
 }
 cd(); setInterval(cd,1000);
