@@ -35,6 +35,13 @@ img{display:block;max-width:100%}
 a{color:inherit}
 .gold-text{background:var(--gold);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
 @keyframes shine{from{background-position:120% 0}to{background-position:-130% 0}}
+/* script & serif glyphs overhang their box; give the gold fill room so swashes aren't clipped */
+.gold-text{padding:.18em .32em .22em;margin:-.18em -.32em -.22em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+h1.gold-text,h2.gold-text,div.gold-text,b.gold-text{display:inline-block}
+.moj.gold-text,.intro-logo .m.gold-text,footer .fm.gold-text,.nav .brand.gold-text{padding:0;margin:0}
+.moj.gold-text{padding-left:.16em}
+.intro-logo .m.gold-text{padding-left:.7em}
+footer .fm.gold-text{padding-left:.3em}
 
 /* ---------- FX layers ---------- */
 #fx{position:fixed;inset:0;pointer-events:none;z-index:60}
