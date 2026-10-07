@@ -525,7 +525,6 @@ p.eyebrow,.scent-copy p.eyebrow,.sec-head p.eyebrow{font-family:var(--sans);font
       <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="#b98235" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><small>DATE</small><strong>Saturday, 10 October 2026</strong></div></div>
       <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="#b98235" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>TIME</small><strong>4:30 PM onwards</strong></div></div>
       <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="#b98235" stroke-width="1.7"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><div><small>VENUE</small><strong id="venueName">MŌJ, Abu Dhabi</strong><span id="venueAddr" style="display:block;font-family:var(--serif);font-size:17px;color:var(--ink-soft);margin-top:4px"></span></div></div>
-      <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="#b98235" stroke-width="1.7"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg><div><small>WHATSAPP</small><strong><a id="waStore" href="#" target="_blank" rel="noopener" style="text-decoration:none"></a></strong></div></div>
     </div>
     <div class="r">
       <div class="big gold-text">Join us</div>
@@ -575,10 +574,10 @@ p.eyebrow,.scent-copy p.eyebrow,.sec-head p.eyebrow{font-family:var(--sans);font
 <script>
 /* ======= EDIT ME ======= */
 const CONFIG = {
-  mapsUrl: "https://share.google/eJP8ze6HTlCtmNjSu",
-  venue: "MŌJ Perfumes, Abu Dhabi Corniche",
-  address: "Salama Residence Building, Al Bateen (W10), Abu Dhabi",
-  whatsapp: "+971 56 617 1211",
+  mapsUrl: "https://maps.app.goo.gl/pK2BjfgFEcRdhaRn7",
+  venue: "MŌJ Perfumes, Al Danah",
+  address: "27 Al Asdiqa-a St, behind Madinat Zayed Mall, Al Danah, Abu Dhabi",
+  whatsapp: "",
   start: "2026-10-10T16:30:00+04:00",
   end:   "2026-10-10T19:30:00+04:00"
 };
@@ -592,7 +591,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 $$('[data-directions]').forEach(a=>{a.href=CONFIG.mapsUrl;a.target='_blank';a.rel='noopener'});
 $('#venueName').textContent = CONFIG.venue;
 $('#venueAddr').textContent = CONFIG.address;
-$('#waStore').textContent = CONFIG.whatsapp; $('#waStore').href='https://wa.me/'+CONFIG.whatsapp.replace(/\D/g,'');
+
 const z = d => new Date(d).toISOString().replace(/[-:]|\.\d{3}/g,'');
 const title = 'MŌJ Grand Opening';
 const details = 'Grand opening of MŌJ — Made of Joy. A new destination for fragrance. In association with HiFive Holdings. ' + location.href.split('#')[0];
